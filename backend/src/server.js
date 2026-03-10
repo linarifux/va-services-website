@@ -22,7 +22,7 @@ const app = express();
 app.use(helmet());
 app.use(
     cors({
-        origin: ['http://localhost:8000', 'http://localhost:5173'], // Adjust this in production
+        origin: ['http://localhost:8000', 'http://localhost:5173', 'https://va-services-website.vercel.app', 'https://naimntech.netlify.app'], // Adjust this in production
     })
 )
 app.use(express.json()); 
