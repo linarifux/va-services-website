@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  /* Soft, minimalist, premium color palette */
+  --color-primary-light: #fdfbf7; /* Off-white/cream background */
+  --color-primary-base: #e6e2d8;  /* Soft sand for sections */
+  --color-primary-dark: #2c2b2a;  /* Deep charcoal for main text */
+  
+  --color-accent-soft: #d4a373;   /* Muted gold/camel for buttons/links */
+  --color-accent-muted: #8b9eb7;  /* Soft slate blue for secondary elements */
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif; /* For premium headings */
+}
+
+body {
+  @apply bg-primary-light text-primary-dark font-sans antialiased;
+}
+
+h1, h2, h3 {
+  @apply font-serif font-light tracking-wide;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Tiptap / ProseMirror specific styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin-bottom: 1em;
+  color: #2c2b2a; /* primary-dark */
+  line-height: 1.7;
+}
+
+.ProseMirror h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #1c1917; /* stone-900 */
+}
+
+.ProseMirror h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #1c1917; /* stone-900 */
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.ProseMirror a {
+  color: #b45309; /* amber-700 */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #d4a373; /* accent-soft */
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #57534e; /* stone-500 */
+}
+
+/* Tiptap Placeholder extension (optional, if you add the placeholder extension later) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #a8a29e;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
