@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 // ASSUMPTION: You have a professional image saved here:
-import HeroImage from '../../assets/profile.png'; 
+import HeroImage from '../../assets/profile_naim.png'; 
 
 const Hero = () => {
   return (
