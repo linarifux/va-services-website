@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Determine the base URL based on the environment
 const API_BASE_URL = import.meta.env.MODE === 'production' 
-  ? 'https://api.naimntech.com' 
+  ? 'https://va-services-website.vercel.app/' 
   : 'http://localhost:8000';
 
 const api = axios.create({
