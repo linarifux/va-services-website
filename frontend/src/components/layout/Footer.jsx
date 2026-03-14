@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="flex flex-col space-y-3">
             <h4 className="text-stone-50 font-medium tracking-wider uppercase text-sm mb-2">Connect</h4>
-            <a href="mailto:hello@naimntech.com" className="hover:text-amber-600 transition duration-300">hello@naimntech.com</a>
+            <a href="mailto:naimntech@gmail.com" className="hover:text-amber-600 transition duration-300">naimntech@gmail.com</a>
             <Link to="/contact" className="hover:text-amber-600 transition duration-300 w-fit">Contact Form</Link>
           </div>
 

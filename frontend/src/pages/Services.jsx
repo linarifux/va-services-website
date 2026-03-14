@@ -13,6 +13,7 @@ const Services = () => {
         'Logistics coordination and order fulfillment workflows',
         'Premium customer support and ticket resolution',
       ],
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000',
       icon: (
         <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -30,6 +31,7 @@ const Services = () => {
         'E-commerce app development and platform enhancements',
         'Performance optimization and routine site maintenance',
       ],
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000',
       icon: (
         <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -47,6 +49,7 @@ const Services = () => {
         'Social media scheduling and platform management',
         'Automated content workflows and prompt engineering',
       ],
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000',
       icon: (
         <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -64,6 +67,7 @@ const Services = () => {
         'Workflow automation and operational system setup',
         'Data entry, research, and comprehensive reporting',
       ],
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
       icon: (
         <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -130,15 +134,21 @@ const Services = () => {
                 </ul>
               </div>
 
-              {/* Visual Placeholder (Abstract Block) */}
+              {/* Visual Block with Image */}
               <div className="flex-1 w-full">
-                <div className="relative aspect-square md:aspect-[4/3] w-full bg-stone-200 rounded-sm overflow-hidden group border border-stone-200">
-                  {/* Subtle placeholder pattern / gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-stone-300 to-stone-100 opacity-50"></div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-stone-50/50 rounded-full blur-3xl group-hover:bg-amber-700/10 transition duration-700"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-serif italic text-stone-400 text-xl tracking-widest opacity-50">NaimNTech</span>
-                  </div>
+                <div className="relative aspect-square md:aspect-[4/3] w-full bg-stone-200 rounded-sm overflow-hidden group border border-stone-200 shadow-xl shadow-stone-300/30">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover object-center grayscale-[60%] group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-700 ease-out"
+                    onError={(e) => {
+                      // Fallback if the image URL fails
+                      e.target.onerror = null; 
+                      e.target.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22600%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22none%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23e7e5e4%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22sans-serif%22%20font-size%3D%2220%22%20font-style%3D%22italic%22%20fill%3D%22%23a8a29e%22%20text-anchor%3D%22middle%22%3ENaimNTech%20Visual%3C%2Ftext%3E%3C%2Fsvg%3E';
+                    }}
+                  />
+                  {/* Subtle overlay to maintain text contrast if needed */}
+                  <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                 </div>
               </div>
 
