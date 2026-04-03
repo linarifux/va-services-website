@@ -20,6 +20,7 @@ import AdminMessageView from './pages/admin/AdminMessageView'; // Import Message
 import AdminBlogList from './pages/admin/AdminBlogList'; 
 import AdminBlogs from './pages/admin/AdminBlogs'; 
 import AdminBlogEdit from './pages/admin/AdminBlogEdit';
+import Portfolio from './pages/Portfolio';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="portfolio" element={<Portfolio />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="contact" element={<Contact />} />

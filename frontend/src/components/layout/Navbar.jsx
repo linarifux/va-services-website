@@ -27,10 +27,11 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 font-sans text-sm tracking-wide">
             <Link to="/" className="text-stone-600 hover:text-amber-700 transition duration-300">Home</Link>
             <Link to="/about" className="text-stone-600 hover:text-amber-700 transition duration-300">About</Link>
             <Link to="/services" className="text-stone-600 hover:text-amber-700 transition duration-300">Services</Link>
+            <Link to="/portfolio" className="text-stone-600 hover:text-amber-700 transition duration-300">Portfolio</Link>
             <Link to="/blog" className="text-stone-600 hover:text-amber-700 transition duration-300">Blog</Link>
           </nav>
 
@@ -38,7 +39,7 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <Link 
               to="/contact" 
-              className="px-6 py-2.5 bg-stone-900 text-stone-50 text-sm tracking-wider uppercase hover:bg-amber-700 transition duration-300 rounded-sm"
+              className="px-6 py-2.5 bg-stone-900 text-stone-50 text-sm font-sans tracking-wider uppercase hover:bg-amber-700 transition duration-300 rounded-sm shadow-sm"
             >
               Let's Talk
             </Link>
@@ -66,7 +67,7 @@ const Navbar = () => {
       {/* Mobile Navigation Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-stone-50 border-b border-stone-200 shadow-lg">
-          <div className="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+          <div className="px-4 pt-2 pb-6 space-y-1 flex flex-col font-sans">
             <Link 
               to="/" 
               onClick={toggleMobileMenu}
@@ -89,6 +90,13 @@ const Navbar = () => {
               Services
             </Link>
             <Link 
+              to="/portfolio" 
+              onClick={toggleMobileMenu}
+              className="block px-3 py-3 text-base font-medium text-stone-700 hover:text-amber-700 hover:bg-stone-100 transition duration-300 rounded-md"
+            >
+              Portfolio
+            </Link>
+            <Link 
               to="/blog" 
               onClick={toggleMobileMenu}
               className="block px-3 py-3 text-base font-medium text-stone-700 hover:text-amber-700 hover:bg-stone-100 transition duration-300 rounded-md"
@@ -98,7 +106,7 @@ const Navbar = () => {
             <Link 
               to="/contact" 
               onClick={toggleMobileMenu}
-              className="mt-4 block text-center px-6 py-3 bg-stone-900 text-stone-50 text-sm tracking-wider uppercase hover:bg-amber-700 transition duration-300 rounded-sm"
+              className="mt-4 block text-center px-6 py-3 bg-stone-900 text-stone-50 text-sm tracking-wider uppercase hover:bg-amber-700 transition duration-300 rounded-sm shadow-sm"
             >
               Let's Talk
             </Link>

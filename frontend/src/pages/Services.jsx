@@ -1,6 +1,50 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
+  // State for the interactive tab menu
+  const [activeTab, setActiveTab] = useState('shopify');
+
+  // Data for the specialized tabs
+  const specializedServices = [
+    { 
+      id: 'shopify', 
+      label: 'Shopify', 
+      desc: 'Complete Shopify architecture. From custom Liquid theme development and headless commerce builds to daily store management, app integrations, and conversion rate optimization.' 
+    },
+    { 
+      id: 'amazon', 
+      label: 'Amazon', 
+      desc: 'End-to-end Amazon Seller Central management. We handle listing optimization, FBA/FBM logistics routing, PPC campaign monitoring, and maintaining pristine account health.' 
+    },
+    { 
+      id: 'wordpress', 
+      label: 'WordPress', 
+      desc: 'Bespoke WordPress and WooCommerce solutions. We build highly optimized, secure, and easily manageable content platforms tailored to your brand identity.' 
+    },
+    { 
+      id: 'custom-web', 
+      label: 'Custom Web Dev', 
+      desc: 'Full-stack engineering using the MERN stack (MongoDB, Express, React, Node.js). We build scalable web applications, custom internal tools, and robust APIs.' 
+    },
+    { 
+      id: 'fulfillment', 
+      label: 'Order Fulfillment', 
+      desc: 'Streamlined logistics operations. We coordinate between your digital storefronts and 3PL partners to ensure seamless, error-free order processing and inventory syncing.' 
+    },
+    { 
+      id: 'support', 
+      label: 'Customer Support', 
+      desc: 'High-touch customer experience management. We integrate with your helpdesk tools to resolve tickets quickly, manage returns, and maintain brand loyalty.' 
+    },
+    { 
+      id: 'shipstation', 
+      label: 'ShipStation', 
+      desc: 'Advanced ShipStation configuration. We set up automation rules, multi-channel syncing, and optimized routing to drastically cut down your shipping and fulfillment overhead.' 
+    },
+  ];
+
+  // Data for the broad operational categories (with images)
   const serviceDetails = [
     {
       id: 'ecommerce',
@@ -95,7 +139,51 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services List */}
+      {/* NEW: Specialized Expertise Tab Menu */}
+      <section className="py-20 bg-stone-100 border-b border-stone-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-serif text-stone-900">Platform & Process Mastery</h2>
+            <p className="text-stone-500 font-sans mt-2">Select a specialty to learn how we manage it.</p>
+          </div>
+
+          {/* Tab Buttons (Scrollable on mobile) */}
+          <div className="flex overflow-x-auto hide-scrollbar border-b border-stone-300 mb-8">
+            <div className="flex space-x-2 pb-2 mx-auto min-w-max">
+              {specializedServices.map((service) => (
+                <button
+                  key={service.id}
+                  onClick={() => setActiveTab(service.id)}
+                  className={`px-5 py-2.5 text-sm font-sans tracking-wide rounded-t-sm transition-all duration-300 ${
+                    activeTab === service.id
+                      ? 'bg-stone-900 text-white shadow-md'
+                      : 'bg-transparent text-stone-600 hover:bg-stone-200 hover:text-stone-900'
+                  }`}
+                >
+                  {service.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tab Content Area */}
+          <div className="bg-white p-8 md:p-12 rounded-sm border border-stone-200 shadow-sm min-h-[180px] flex items-center justify-center text-center">
+            {specializedServices.map((service) => (
+              <div 
+                key={service.id} 
+                className={`${activeTab === service.id ? 'block' : 'hidden'} animate-fade-in`}
+              >
+                <h3 className="text-xl font-serif text-amber-700 mb-4">{service.label} Operations</h3>
+                <p className="text-stone-600 font-sans font-light text-lg leading-relaxed max-w-3xl mx-auto">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Broad Services List */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
           {serviceDetails.map((service, index) => (
@@ -142,12 +230,11 @@ const Services = () => {
                     alt={service.title}
                     className="w-full h-full object-cover object-center grayscale-[60%] group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-700 ease-out"
                     onError={(e) => {
-                      // Fallback if the image URL fails
+                      // Fallback if the image URL fails to load
                       e.target.onerror = null; 
                       e.target.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22600%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20600%22%20preserveAspectRatio%3D%22none%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22%23e7e5e4%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22sans-serif%22%20font-size%3D%2220%22%20font-style%3D%22italic%22%20fill%3D%22%23a8a29e%22%20text-anchor%3D%22middle%22%3ENaimNTech%20Visual%3C%2Ftext%3E%3C%2Fsvg%3E';
                     }}
                   />
-                  {/* Subtle overlay to maintain text contrast if needed */}
                   <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                 </div>
               </div>
